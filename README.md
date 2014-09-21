@@ -1,4 +1,4 @@
 warriordude
 ===========
 
-Another game rip from the past, now in Ruby!
+Created by someone long ago, coded by Jim Cody and hacked by Rob Hicks.
