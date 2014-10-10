@@ -1,0 +1,18 @@
+RM-1 readme level 1                                             completed 10/4/2014
+RM-2 Instructions of Play First Draft                           (Rob Hicks)
+SP-1 Splash Screen place holder                                 completed 10/4/2014
+SP-2 Splash Screen                                              (Jim Cody)
+NG-1 New Game Process                                           (Open)
+CG-1 Continue Game Process                                      (Open)
+MN-1 Menu System Alpha                                          completed 10/4/2014
+DC-1 Initial dungeon process                                    (Open)
+SC-1 Initial store process                                      (Open)
+CL-1 Create Entity Class                                        completed 10/7/2014
+CL-2 Create Character Sub-Class                                 completed 10/7/2014
+CL-3 Create Monster Sub-Class                                   completed 10/7/2014
+DN-1 Build a dungeon class                                      (Open)
+DN-2 Dungeon Class should have a 70-20-10 monster ratio         (Open)
+    70% Monster Level = Character Level
+    20% Monster Level = Character Level - 1
+    10% Monster Level = Character Level + 1
+EX-1 Experience is rewarded relevant to level monster killed    (Open)
