@@ -11,25 +11,25 @@ To Begin Select "New Game"
 
 This will ask you to name your character, and will then build a basic character and display your character's stats
 
-Name:	John Doe
-HP	10 of 10
-Level:	1
-Weapon:	Fists
-Armor:	None
-Shield: None
-Coin:	0
-Exp:	0
+Name:	John Doe<br>
+HP	10 of 10<br>
+Level:	1<br>
+Weapon:	Fists<br>
+Armor:	None<br>
+Shield: None<br>
+Coin:	0<br>
+Exp:	0<br>
 
 Any time after this initial display, you can press 's' from the menu to get your current stats
 
-Name:	Rob
-HP:	290 of 350
-Level:	14
-Weapon: +Hammer of Awesome+
-Armor:	Mithril Set
-Shield:	Buckler of Sadness
-Coin:	3470
-Exp:	240,400
+Name:	Rob<br>
+HP:	290 of 350<br>
+Level:	14<br>
+Weapon: +Hammer of Awesome+<br>
+Armor:	Mithril Set<br>
+Shield:	Buckler of Sadness<br>
+Coin:	3470<br>
+Exp:	240,400<br>
 
 ....Ah to dream
 
