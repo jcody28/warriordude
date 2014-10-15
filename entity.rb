@@ -4,6 +4,7 @@ class Entity
   @hitpoints = -1
   @money
   @weapon
+  @level
 
   def set_name(name)
     @name = name
@@ -22,6 +23,12 @@ class Entity
   end
   def get_hit_points
     @hitpoints
+  end
+  def set_level(lev)
+    @level = lev
+  end
+  def get_level
+    @level
   end
   def set_money(cash)
     @money = cash

@@ -25,4 +25,7 @@ class Character < Entity
   def set_shield(shield)
     @shield = shield
   end
+  def weaponname(wn)
+    "Fists" if wn = 0
+  end
 end
