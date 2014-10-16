@@ -20,7 +20,7 @@ class Game
     character.set_money(0)
     character.set_weapon(0)
     character.set_level(1)
-    #savechar(character)
+    savechar(character)
     display_char(character)
   end
 
@@ -61,5 +61,23 @@ class Game
           puts "Please enter a given option"
       end
     end
+  end
+
+  def savechar(char)
+    outfile = open('c.json', 'w')
+    outfile.write ("{\n")
+    outfile.write ("    \"character\" :\n")
+    outfile.write ("    {\n")
+    outfile.write ("        \"name\" : \"#{char.get_name}\",\n")
+    outfile.write ("        \"mhp\" : \"#{char.get_maximum_hit_points}\",\n")
+    outfile.write ("        \"hp\" : \"#{char.get_hit_points}\",\n")
+    outfile.write ("        \"level\" : \"#{char.get_level}\",\n")
+    outfile.write ("        \"weapon\" : \"#{char.get_weapon}\",\n")
+    outfile.write ("        \"shield\" : \"#{char.get_shield}\",\n")
+    outfile.write ("        \"coin\" : \"#{char.get_money}\",\n")
+    outfile.write ("        \"exp\" : \"#{char.get_experience}\"\n")
+    outfile.write ("    }\n")
+    outfile.write ("}\n")
+    outfile.close
   end
 end
