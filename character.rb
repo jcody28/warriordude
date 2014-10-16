@@ -1,8 +1,8 @@
 require_relative("entity")
 class Character < Entity
   @experience = -1
-  @armor = ""
-  @shield = ""
+  @armor = 0
+  @shield = 0
 
   def initialize
     @experience = 0
