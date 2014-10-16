@@ -25,7 +25,16 @@ class Character < Entity
   def set_shield(shield)
     @shield = shield
   end
+  def get_shield
+    @shield
+  end
   def weaponname(wn)
-    "Fists" if wn = 0
+    'Fists' if wn == 0
+  end
+  def armorname(an)
+    'None' if an == 0
+  end
+  def shieldname(sn)
+    'None' if sn == 0
   end
 end

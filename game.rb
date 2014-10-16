@@ -25,16 +25,16 @@ class Game
   end
 
   def display_char(char)
-    puts '***************'
+    puts '****************'
     puts "Name:   #{char.get_name}"
     puts "HP:     #{char.get_hit_points} of #{char.get_maximum_hit_points}"
     puts "Level:  #{char.get_level}"
     puts "Weapon: #{char.weaponname(char.get_weapon)}"
-    puts "Armor:"
-    puts "Shield:"
-    puts "Coin:"
-    puts "Exp:"
-    puts '***************'
+    puts "Armor:  #{char.armorname(char.get_armor)}"
+    puts "Shield: #{char.shieldname(char.get_shield)}"
+    puts "Coin:   #{char.get_money}"
+    puts "Exp:    #{char.get_experience}"
+    puts '****************'
   end
 
   def run
@@ -44,7 +44,8 @@ class Game
       puts "a sign reads:"
       puts "1. Dungeon"
       puts "2. Store"
-      puts "3. End Game"
+      puts "3. Stats"
+      puts "4. End Game"
       choice = gets.chomp.to_i
       case choice
         when 1
@@ -52,6 +53,8 @@ class Game
         when 2
           puts "Store code goes here."
         when 3
+          display_char(character)
+        when 4
           puts "See you later!"
           exit = true
         else
