@@ -1,13 +1,13 @@
 {
     "character" :
     {
-        "name" : "Rob",
-        "mhp" : "10",
-        "hp" : "10",
-        "level" : "1",
-        "weapon" : "0",
-        "shield" : "0",
-        "coin" : "0",
-        "exp" : "0"
+        "name" : "Jim Cody",
+        "mhp" : 10,
+        "hp" : 10,
+        "level" : 1,
+        "weapon" : 0,
+        "shield" : 0,
+        "coin" : 0,
+        "exp" : 0
     }
 }

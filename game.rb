@@ -1,3 +1,4 @@
+require 'json'
 require_relative("character")
 class Game
   def initialize
@@ -37,8 +38,26 @@ class Game
     puts '****************'
   end
 
+  def get_character
+    f = File.open('c.json', 'r')
+    config = JSON.load(f)
+  end
+
+  def loadchar(char)
+    char.set_name(get_character['character']['name'])
+    char.set_maximum_hit_points(get_character['character']['mhp'])
+    char.set_hit_points(get_character['character']['hp'])
+    char.set_level(get_character['character']['level'])
+    char.set_weapon(get_character['character']['weapon'])
+    char.set_shield(get_character['character']['shield'])
+    char.set_money(get_character['character']['coin'])
+    char.set_experience(get_character['character']['exp'])
+  end
+
   def run
     exit = false
+    char = Character.new
+    loadchar(char)
     while !exit
       puts "Location: Crossroads"
       puts "a sign reads:"
@@ -53,7 +72,7 @@ class Game
         when 2
           puts "Store code goes here."
         when 3
-          display_char(character)
+          display_char(char)
         when 4
           puts "See you later!"
           exit = true
@@ -69,13 +88,13 @@ class Game
     outfile.write ("    \"character\" :\n")
     outfile.write ("    {\n")
     outfile.write ("        \"name\" : \"#{char.get_name}\",\n")
-    outfile.write ("        \"mhp\" : \"#{char.get_maximum_hit_points}\",\n")
-    outfile.write ("        \"hp\" : \"#{char.get_hit_points}\",\n")
-    outfile.write ("        \"level\" : \"#{char.get_level}\",\n")
-    outfile.write ("        \"weapon\" : \"#{char.get_weapon}\",\n")
-    outfile.write ("        \"shield\" : \"#{char.get_shield}\",\n")
-    outfile.write ("        \"coin\" : \"#{char.get_money}\",\n")
-    outfile.write ("        \"exp\" : \"#{char.get_experience}\"\n")
+    outfile.write ("        \"mhp\" : #{char.get_maximum_hit_points},\n")
+    outfile.write ("        \"hp\" : #{char.get_hit_points},\n")
+    outfile.write ("        \"level\" : #{char.get_level},\n")
+    outfile.write ("        \"weapon\" : #{char.get_weapon},\n")
+    outfile.write ("        \"shield\" : #{char.get_shield},\n")
+    outfile.write ("        \"coin\" : #{char.get_money},\n")
+    outfile.write ("        \"exp\" : #{char.get_experience}\n")
     outfile.write ("    }\n")
     outfile.write ("}\n")
     outfile.close
