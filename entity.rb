@@ -25,6 +25,7 @@ class Entity
     @hitpoints
   end
   def set_level(lev)
+    lev = 1 if lev < 1
     @level = lev
   end
   def get_level

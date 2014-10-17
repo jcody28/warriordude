@@ -44,6 +44,7 @@ class Game
     bad_guy = Monster.new
     loadmonster(bad_guy, char)
     while exitdungeon != 0
+      puts "You face a level #{bad_guy.get_level} #{bad_guy.get_name}!"
       exitdungeon = 0
     end
   end
@@ -66,7 +67,16 @@ class Game
   end
 
   def loadmonster(mon, char)
-
+    randomlevel = rand(10)+1
+    case
+      when randomlevel < 8
+        mon.set_level(char.get_level)
+      when randomlevel > 7 && randomlevel < 10
+        mon.set_level(char.get_level - 1)
+      when randomlevel == 10
+        mon.set_level(char.get_level + 1)
+    end
+    mon.set_name("Monster")
   end
 
   def run
