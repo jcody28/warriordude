@@ -141,7 +141,7 @@ class Game
 	  puts ""
 	  puts "QA:		Jim Cody, Robert Hicks"
 	  puts ""
-	  puts "Latest Revision:  2014.10.17"
+	  puts "Latest Revision:  2014.10.17.01"
 	  puts ""
   end
 end
