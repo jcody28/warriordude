@@ -3,6 +3,7 @@ require_relative("character")
 require_relative("monster")
 class Game
   def initialize
+    splash()
     puts "1. New Game"
     puts "2. Continue Game"
     newgame = gets.chomp.to_i
@@ -83,6 +84,7 @@ class Game
     exit = false
     char = Character.new
     loadchar(char)
+    system "cls"
     while !exit
       puts "Location: Crossroads"
       puts "a sign reads:"
@@ -93,11 +95,14 @@ class Game
       choice = gets.chomp.to_i
       case choice
         when 1
+          system "cls"
           puts "Location: The Dungeon"
           dungeon(char)
         when 2
+          system "cls"
           puts "Store code goes here."
         when 3
+          system "cls"
           display_char(char)
         when 4
           puts "See you later!"
@@ -125,5 +130,18 @@ class Game
     outfile.write ("    }\n")
     outfile.write ("}\n")
     outfile.close
+  end
+  
+  def splash()
+    system "cls"
+    puts ""
+    puts "WARRIORDUDE - a new version of an old game"
+	  puts ""
+	  puts "Devs:		Robert Hicks, Jim Cody"
+	  puts ""
+	  puts "QA:		Jim Cody, Robert Hicks"
+	  puts ""
+	  puts "Latest Revision:  2014.10.17"
+	  puts ""
   end
 end
