@@ -3,7 +3,7 @@ require_relative("character")
 require_relative("monster")
 class Game
   def initialize
-    splash()
+    splash
     puts "1. New Game"
     puts "2. Continue Game"
     newgame = gets.chomp.to_i
@@ -55,6 +55,11 @@ class Game
     config = JSON.load(f)
   end
 
+  def get_monster
+    f = File.open('m.json', 'r')
+    config = JSON.load(f)
+  end
+
   def loadchar(char)
     char.set_name(get_character['character']['name'])
     char.set_maximum_hit_points(get_character['character']['mhp'])
@@ -77,7 +82,8 @@ class Game
       when randomlevel == 10
         mon.set_level(char.get_level + 1)
     end
-    mon.set_name("Mean Monster")
+    mn = rand(3)+1
+    mon.set_name(get_monster['monster'][mn.to_s])
   end
 
   def run
@@ -132,7 +138,7 @@ class Game
     outfile.close
   end
   
-  def splash()
+  def splash
     system "cls"
     puts ""
     puts "WARRIORDUDE - a new version of an old game"
