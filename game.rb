@@ -83,7 +83,7 @@ class Game
       choice = gets.chomp.to_i
       case choice
         when 1
-          puts "Welcome to you doom!"
+          puts "Location: The Dungeon"
           dungeon(char)
         when 2
           puts "Store code goes here."
