@@ -1,5 +1,6 @@
 require 'json'
 require_relative("character")
+require_relative("monster")
 class Game
   def initialize
     puts "1. New Game"
@@ -38,6 +39,15 @@ class Game
     puts '****************'
   end
 
+  def dungeon(char)
+    exitdungeon = -1
+    bad_guy = Monster.new
+    loadmonster(bad_guy, char)
+    while exitdungeon != 0
+      exitdungeon = 0
+    end
+  end
+
   def get_character
     f = File.open('c.json', 'r')
     config = JSON.load(f)
@@ -55,6 +65,10 @@ class Game
     char.set_experience(get_character['character']['exp'])
   end
 
+  def loadmonster(mon, char)
+
+  end
+
   def run
     exit = false
     char = Character.new
@@ -69,7 +83,8 @@ class Game
       choice = gets.chomp.to_i
       case choice
         when 1
-          puts "Dungeon code goes here."
+          puts "Welcome to you doom!"
+          dungeon(char)
         when 2
           puts "Store code goes here."
         when 3
