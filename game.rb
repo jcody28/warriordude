@@ -76,7 +76,7 @@ class Game
       when randomlevel == 10
         mon.set_level(char.get_level + 1)
     end
-    mon.set_name("Monster")
+    mon.set_name("Mean Monster")
   end
 
   def run
