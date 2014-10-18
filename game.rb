@@ -45,7 +45,8 @@ class Game
     bad_guy = Monster.new
     loadmonster(bad_guy, char)
     while exitdungeon != 0
-      puts "You face a level #{bad_guy.get_level} #{bad_guy.get_name}!"
+      puts "You face a level #{bad_guy.get_level.to_s} #{bad_guy.get_name}!"
+      puts "#{bad_guy.get_hit_points.to_s} of #{bad_guy.get_maximum_hit_points.to_s}"
       exitdungeon = 0
     end
   end
@@ -83,6 +84,9 @@ class Game
         mon.set_level(char.get_level + 1)
     end
     mn = rand(3)+1
+    monhp = rand((10)+1)*mon.get_level
+    mon.set_maximum_hit_points(monhp)
+    mon.set_hit_points(monhp)
     mon.set_name(get_monster['monster'][mn.to_s])
   end
 
