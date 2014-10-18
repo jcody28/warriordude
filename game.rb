@@ -114,7 +114,8 @@ class Game
           dungeon(char)
         when 2
           system "cls"
-          puts "Store code goes here."
+          puts "Location: WD Shopping Center"
+          shopping(char)
         when 3
           system "cls"
           display_char(char)
@@ -144,5 +145,24 @@ class Game
     outfile.write ("    }\n")
     outfile.write ("}\n")
     outfile.close
+  end
+
+  def shopping(char)
+    shopexit = -1
+    while shopexit != 0
+      puts '1. Wonderful World of Weapons'
+      puts "2. Amy's Armor"
+      puts "3. Sharpfail's Shields"
+      puts '4. House of Healing'
+      puts '5. Back to the Crossroads'
+      choice = gets.chomp.to_i
+      case choice
+        when 5
+          shopexit = 0
+          system("cls")
+        else
+          system('cls')
+      end
+    end
   end
 end
