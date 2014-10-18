@@ -47,6 +47,8 @@ class Game
     while exitdungeon != 0
       puts "You face a level #{bad_guy.get_level.to_s} #{bad_guy.get_name}!"
       puts "#{bad_guy.get_hit_points.to_s} of #{bad_guy.get_maximum_hit_points.to_s}"
+      puts "It has #{bad_guy.get_money.to_s} kill coin(s)!"
+      puts "Just be sure to dodge it's #{bad_guy.get_weapon}!"
       exitdungeon = 0
     end
   end
@@ -85,9 +87,12 @@ class Game
     end
     mn = rand(3)+1
     monhp = rand((10)+1)*mon.get_level
+    monmon = rand((10)+1)*mon.get_level
     mon.set_maximum_hit_points(monhp)
     mon.set_hit_points(monhp)
+    mon.set_money(monmon)
     mon.set_name(get_monster['monster'][mn.to_s])
+    mon.set_weapon(get_monster['weapon'][mn.to_s])
   end
 
   def run
