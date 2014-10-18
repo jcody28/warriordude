@@ -18,13 +18,13 @@ class Entity
   def get_maximum_hit_points
     @maximumhitpoints
   end
+  def set_level(lev)
+  end
   def set_hit_points(hp)
     @hitpoints = hp
   end
   def get_hit_points
     @hitpoints
-  end
-  def set_level(lev)
     lev = 1 if lev < 1
     @level = lev
   end

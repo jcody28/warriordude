@@ -3,7 +3,6 @@ require_relative("character")
 require_relative("monster")
 class Game
   def initialize
-    splash
     puts "1. New Game"
     puts "2. Continue Game"
     newgame = gets.chomp.to_i
@@ -145,18 +144,5 @@ class Game
     outfile.write ("    }\n")
     outfile.write ("}\n")
     outfile.close
-  end
-  
-  def splash
-    system "cls"
-    puts ""
-    puts "WARRIORDUDE - a new version of an old game"
-	  puts ""
-	  puts "Devs:		Robert Hicks, Jim Cody"
-	  puts ""
-	  puts "QA:		Jim Cody, Robert Hicks"
-	  puts ""
-	  puts "Latest Revision:  2014.10.17.01"
-	  puts ""
   end
 end
