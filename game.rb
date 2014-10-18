@@ -157,6 +157,57 @@ class Game
       puts '5. Back to the Crossroads'
       choice = gets.chomp.to_i
       case choice
+        when 4
+          healexit = -1
+          while healexit != 0
+            system('cls')
+            puts "Location: House of Healing"
+            health_needs = char.get_maximum_hit_points - char.get_hit_points
+            if health_needs % 2 == 0
+              health_cost = health_needs / 2
+            else
+              health_cost = (health_needs + 1) / 2
+            end
+            if health_needs == 0
+              healexit = 0
+              puts'You are way to healthy to be here. Go away!'
+              puts'1. Go Away'
+              choice = gets.chomp.to_i
+              system('cls')
+            elsif char.get_money > health_cost
+              puts"I can make you good as new for only #{health_cost} coin(s)"
+              puts'1. Please fix'
+              puts'2. Maybe later'
+              choice = gets.chomp.to_i
+              case choice
+                when 1
+                  char.set_money(char.get_money - health_cost)
+                  char.set_hit_points(char.get_maximum_hit_points)
+                  savechar(char)
+                when 2
+                  healexit = 0
+              end
+            elsif health_cost > char.get_money && char.get_money > 0
+              puts"I'm not a miracle worker, but I can get you back #{char.get_money * 2} points of health back for only #{char.get_money} coin(s)"
+              puts'1. Please fix'
+              puts'2. Maybe later'
+              choice = gets.chomp.to_i
+              case choice
+                when 1
+                  char.set_hit_points(char.get_hit_points + char.get_money * 2)
+                  char.set_money(0)
+                  savechar(char)
+                when 2
+                  healexit = 0
+              end
+            elsif char.get_money == 0
+              healexit = 0
+              puts'What are you expecting? Universal health care?. Go away!'
+              puts'1. Go Away'
+              choice = gets.chomp.to_i
+              system('cls')
+            end
+          end
         when 5
           shopexit = 0
           system("cls")
