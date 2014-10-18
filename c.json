@@ -1,9 +1,9 @@
 {
     "character" :
     {
-        "name" : "Rob",
+        "name" : "John",
         "mhp" : 100,
-        "hp" : 18,
+        "hp" : 50,
         "level" : 1,
         "weapon" : 0,
         "armor"  : 0,
