@@ -1,14 +1,43 @@
 {
     "monster" :
     {
-      "1" : "Gnarly Bat",
-      "2" : "Failed Skeleton",
-      "3" : "Really Slow Zombie"
+      "1" : "Bat",
+      "2" : "Skeleton",
+      "3" : "Zombie",
+	  "4" : "Micro Manager",
+	  "5" : "Office Slut",
+	  "6" : "Politician",
+	  "7" : "Drunk",
+	  "8" : "Bum",
+	  "9" : "Street Musician"
     },
 
     "weapon" :
     { "1" : "Pointy Teeth",
       "2" : "Faily Teeth",
-      "3" : "Zombie Teeth"
-    }
+      "3" : "Zombie Teeth",
+	  "4" : "TPS Reports",
+	  "5" : "Sultry Moves",
+	  "6" : "Promises & Lies",
+	  "7" : "Vomit",
+	  "8" : "Change Cup",
+	  "9" : "Catchy Tune"
+    },
+	
+	"descriptor" :
+	{	"1" : "Gnarly",
+		"2" : "Failed",
+		"3" : "Really Slow",
+		"4" : "Bloody",
+		"5" : "Grumpy",
+		"6" : "Sleepy",
+		"7" : "Sneezy",
+		"8" : "Happy",
+		"9" : "Bashful",
+		"10" : "Dopey",
+		"11" : "Sleazy",
+		"12" : "Muddy",
+		"13" : "Sunburnt",
+		"14" : "Stealthy"
+	}
 }

@@ -1,14 +1,14 @@
 {
     "character" :
     {
-        "name" : "John",
-        "mhp" : 100,
-        "hp" : 50,
+        "name" : "Jimbo Cody",
+        "mhp" : 10,
+        "hp" : 10,
         "level" : 1,
         "weapon" : 0,
         "armor"  : 0,
         "shield" : 0,
-        "coin" : 0,
+        "coin" : 14,
         "exp" : 0
     }
 }

@@ -26,35 +26,59 @@ class Game
     bad_guy = Monster.new
     loadmonster(bad_guy, char)
     while exitdungeon != 0
+	  puts "Your character is level: #{char.get_level.to_s}"
       puts "You face a level #{bad_guy.get_level.to_s} #{bad_guy.get_name}!"
-      puts "#{bad_guy.get_hit_points.to_s} of #{bad_guy.get_maximum_hit_points.to_s}"
-      puts "It has #{bad_guy.get_money.to_s} kill coin(s)!"
       puts "Just be sure to dodge it's #{bad_guy.get_weapon}!"
+      puts "HP:  #{bad_guy.get_hit_points.to_s} of #{bad_guy.get_maximum_hit_points.to_s}"
+      puts "It may have #{bad_guy.get_money.to_s} coin(s) if you kill it!"
       exitdungeon = 0
     end
   end
+  
   def get_monster
     f = File.open('m.json', 'r')
     config = JSON.load(f)
   end
+  
+  def rolldie(sides)
+	rand(sides) + 1
+  end
+  
+  def rolldice(num, sides, mod)
+	i = 0
+	result = 0
+	while i < num do
+	  result = result + rolldie(sides)
+	  i +=1
+	end
+	result + mod
+  end
+  
   def loadmonster(mon, char)
     randomlevel = rand(10)+1
     case
       when randomlevel < 8
         mon.set_level(char.get_level)
       when randomlevel > 7 && randomlevel < 10
-        mon.set_level(char.get_level - 1)
+		if char.get_level == 1
+		  mon.set_level(1)
+		else
+		  mon.set_level(char.get_level - 1)
+		end
       when randomlevel == 10
         mon.set_level(char.get_level + 1)
     end
-    mn = rand(3)+1
-    monhp = rand((10)+1)*mon.get_level
-    monmon = rand((10)+1)*mon.get_level
+    mr = rand(9)+1
+	dr = rand(14)+1 # there has to be a better way to limit some descriptors based on which monster was randomized - TBD
+    monhp = rolldice(mon.get_level, 10, 0) # wanted to give d10 hp for each monster level - we can change this
+	#  Coin for the monster should be the max coin possible for killing it as we discussed - we have to decide how to dole out
+	#    a percentage of the max based on how difficult the battle was and the level difference should be included too.
+    moncoin = rolldice(mon.get_level, 12, 0) # wanted to give d12 potential coins per monster level - we can change this
     mon.set_maximum_hit_points(monhp)
     mon.set_hit_points(monhp)
-    mon.set_money(monmon)
-    mon.set_name(get_monster['monster'][mn.to_s])
-    mon.set_weapon(get_monster['weapon'][mn.to_s])
+    mon.set_money(moncoin)
+    mon.set_name(get_monster['descriptor'][dr.to_s] + ' ' + get_monster['monster'][mr.to_s])
+    mon.set_weapon(get_monster['weapon'][mr.to_s])
   end
 
   def run
@@ -84,6 +108,7 @@ class Game
           char.display
         when 4
           puts "See you later!"
+		  char.save
           exit = true
         else
           puts "Please enter a given option"
@@ -94,11 +119,12 @@ class Game
   def shopping(char)
     shopexit = -1
     while shopexit != 0
-      puts '1. Wonderful World of Weapons'
+      puts "1. Wonderful World of Weapons"
       puts "2. Amy's Armor"
       puts "3. Sharpfail's Shields"
-      puts '4. House of Healing'
-      puts '5. Back to the Crossroads'
+      puts "4. House of Healing"
+	  puts "5. Petunia's Potions"
+      puts "6. Back to the Crossroads"
       choice = gets.chomp.to_i
       case choice
         when 4
@@ -114,7 +140,7 @@ class Game
             end
             if health_needs == 0
               healexit = 0
-              puts'You are way to healthy to be here. Go away!'
+              puts'You are way too healthy to be here. Go away!'
               puts'1. Go Away'
               choice = gets.chomp.to_i
               system('cls')
@@ -152,7 +178,33 @@ class Game
               system('cls')
             end
           end
-        when 5
+		when 5
+		  healexit = -1
+          while healexit != 0
+            system('cls')
+            puts "Location: Petunia's Potions"
+			puts "1. See Menu"
+			puts "2. Sell from Inventory"  # TBD
+			puts "3. Leave Store"
+			choice = gets.chomp.to_i
+            case choice
+			  when 1
+			    system('cls')
+				puts "Petunia's Potions Menu"
+				puts "1. Cure Light Wonds (5 coins)"
+				puts "2. Cure Moderate Wonds (20 coins)"
+				puts "3. Cure Serious Wonds (50 coins)"
+				menu_option = gets.chomp.to_i
+				case 
+				char.set_hit_points(char.get_hit_points + char.get_money * 2)
+				char.set_money(0)
+				char.save
+			  when 2
+				healexit = 0
+              when 3
+                healexit = 0
+            end
+        when 6
           shopexit = 0
           system("cls")
         else
