@@ -1,4 +1,5 @@
-require_relative('game.rb')
-
+require_relative('game')
+require_relative('splash')
+splash
 wd = Game.new
 wd.run

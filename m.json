@@ -1,0 +1,14 @@
+{
+    "monster" :
+    {
+      "1" : "Gnarly Bat",
+      "2" : "Failed Skeleton",
+      "3" : "Really Slow Zombie"
+    },
+
+    "weapon" :
+    { "1" : "Pointy Teeth",
+      "2" : "Faily Teeth",
+      "3" : "Zombie Teeth"
+    }
+}
