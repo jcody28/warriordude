@@ -179,8 +179,8 @@ class Game
             end
           end
 		when 5
-		  healexit = -1
-          while healexit != 0
+		  storeexit = -1
+          while storeexit != 0
             system('cls')
             puts "Location: Petunia's Potions"
 			puts "1. See Menu"
@@ -194,16 +194,29 @@ class Game
 				puts "1. Cure Light Wonds (5 coins)"
 				puts "2. Cure Moderate Wonds (20 coins)"
 				puts "3. Cure Serious Wonds (50 coins)"
+				puts "4. Exit Menu"
 				menu_option = gets.chomp.to_i
-				case 
-				char.set_hit_points(char.get_hit_points + char.get_money * 2)
-				char.set_money(0)
-				char.save
+				case menu_option
+				  when 1
+				    if char.get_money >= 5
+					  char.set_money(char.get_money - 5)
+					  char.add_inventory("Cure Light Wounds potion")
+					  char.save
+					else
+					  puts "You don't have enough for the Cure Light Wounds potion"
+					  message = gets.chomp.to_i
+					end
+				  when 2
+				    storeexit = 0
+				  when 3
+				    storeexit = 0
+				end
 			  when 2
-				healexit = 0
+				storeexit = 0
               when 3
-                healexit = 0
+                storeexit = 0
             end
+		  end
         when 6
           shopexit = 0
           system("cls")

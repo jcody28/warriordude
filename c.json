@@ -1,14 +1,15 @@
 {
     "character" :
     {
-        "name" : "Jimbo Cody",
+        "name" : "Jim Cody",
         "mhp" : 10,
         "hp" : 10,
         "level" : 1,
         "weapon" : 0,
         "armor"  : 0,
         "shield" : 0,
-        "coin" : 14,
-        "exp" : 0
+        "coin" : 4,
+        "exp" : 0,
+        "inv" : ["Cure Light Wounds potion"]
     }
 }
