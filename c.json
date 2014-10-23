@@ -1,15 +1,15 @@
 {
     "character" :
     {
-        "name" : "Jim Cody",
+        "name" : "Bilbo Baggins",
         "mhp" : 10,
         "hp" : 10,
         "level" : 1,
-        "weapon" : 0,
-        "armor"  : 0,
-        "shield" : 0,
-        "coin" : 4,
+        "weapon" : "0",
+        "armor"  : "0",
+        "shield" : "0",
+        "coin" : 0,
         "exp" : 0,
-        "inv" : ["Cure Light Wounds potion"]
+        "inv" : []
     }
 }
